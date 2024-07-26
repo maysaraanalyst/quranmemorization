@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMLDB PATH="local/quranmemorization/db" VERSION="20240726"
+    COMMENT="XMLDB file for Moodle local/quranmemorization"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="quranmemorization_quran" COMMENT="Quran library">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"
+                    COMMENT="Primary key" />
+                <FIELD NAME="surah" TYPE="int" LENGTH="3" NOTNULL="true" COMMENT="Surah number" />
+                <FIELD NAME="ayah" TYPE="int" LENGTH="5" NOTNULL="true" COMMENT="Ayah number" />
+                <FIELD NAME="text" TYPE="text" NOTNULL="true" COMMENT="Ayah text" />
+                <FIELD NAME="translation" TYPE="text" NOTNULL="false" COMMENT="Ayah translation" />
+                <FIELD NAME="transliteration" TYPE="text" NOTNULL="false"
+                    COMMENT="Ayah transliteration" />
+                <FIELD NAME="audio" TYPE="text" NOTNULL="false" COMMENT="Audio file URL" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="quranmemorization_progress" COMMENT="Stores memorization progress">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"
+                    COMMENT="Primary key" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User ID" />
+                <FIELD NAME="surah" TYPE="int" LENGTH="3" NOTNULL="true" COMMENT="Surah number" />
+                <FIELD NAME="ayah" TYPE="int" LENGTH="5" NOTNULL="true" COMMENT="Ayah number" />
+                <FIELD NAME="memorized" TYPE="int" LENGTH="1" NOTNULL="true" DEFAULT="0"
+                    COMMENT="Memorization status" />
+                <FIELD NAME="score" TYPE="int" LENGTH="5" NOTNULL="true" DEFAULT="0"
+                    COMMENT="Memorization score" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+
+        <TABLE NAME="quranmemorization_targets" COMMENT="Stores user daily targets">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"
+                    COMMENT="Primary key" />
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="User ID" />
+                <FIELD NAME="daily_target" TYPE="int" LENGTH="3" NOTNULL="true"
+                    COMMENT="Daily target (number of ayahs)" />
+                <FIELD NAME="date_set" TYPE="int" LENGTH="10" NOTNULL="true"
+                    COMMENT="Date when the target was set" />
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
