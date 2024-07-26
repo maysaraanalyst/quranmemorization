@@ -1,4 +1,5 @@
 <?php
+
 $string['pluginname'] = 'Quran Memorization Tracker';
 $string['defaultdailytarget'] = 'Default Daily Target';
 $string['defaultdailytarget_desc'] = 'Set the default daily target for the number of Ayahs to memorize.';

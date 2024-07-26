@@ -36,4 +36,17 @@ foreach ($progress as $record) {
 echo html_writer::end_tag('tbody');
 echo html_writer::end_tag('table');
 
+$mform = new \local_quranmemorization\forms\select();
+
+if ($mform->is_cancelled()) {
+    // Handle form cancel operation, if cancel button is present on form.
+} else if ($data = $mform->get_data()) {
+    // In case of valid data, display the submitted data.
+    echo "Surah: " . $data->surah;
+    echo "Ayah: " . $data->ayah;
+} else {
+    // Display the form.
+    $mform->display();
+}
+
 echo $OUTPUT->footer();

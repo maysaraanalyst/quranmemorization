@@ -2,8 +2,7 @@
 <XMLDB PATH="local/quranmemorization/db" VERSION="20240726"
     COMMENT="XMLDB file for Moodle local/quranmemorization"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
->
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
     <TABLES>
         <TABLE NAME="quranmemorization_quran" COMMENT="Quran library">
             <FIELDS>
@@ -21,7 +20,6 @@
                 <KEY NAME="primary" TYPE="primary" FIELDS="id" />
             </KEYS>
         </TABLE>
-
         <TABLE NAME="quranmemorization_progress" COMMENT="Stores memorization progress">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"
@@ -38,7 +36,6 @@
                 <KEY NAME="primary" TYPE="primary" FIELDS="id" />
             </KEYS>
         </TABLE>
-
         <TABLE NAME="quranmemorization_targets" COMMENT="Stores user daily targets">
             <FIELDS>
                 <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"

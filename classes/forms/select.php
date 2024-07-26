@@ -1,19 +1,20 @@
 <?php
+
 namespace local_quranmemorization\forms;
 
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->libdir . '/formslib.php');
-$PAGE->requires->js_call_amd('local_quranmemorization/ayahselector', 'init');
 
 class select extends \moodleform {
     public function definition() {
+        global $PAGE, $DB;
+
         $mform = $this->_form;
-        
+
         $mform->addElement('header', 'general', get_string('select_surah_ayah', 'local_quranmemorization'));
 
         // Fetch Surah options from the database.
-        global $DB;
         $surahs = $DB->get_records_menu('quranmemorization_quran', null, 'surah', 'surah, CONCAT(surah, " - ", surahname)');
 
         $mform->addElement('select', 'surah', get_string('surah', 'local_quranmemorization'), $surahs);
